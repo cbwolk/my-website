@@ -47,12 +47,10 @@
                                 <h3 id="-scraping-py-"><code>scraping.py</code></h3>
                                 <p>The Home Depot sitemap is constructed in multiple layers. The parent link of all products is <a href="https://www.homedepot.com/sitemap/P/PIPs.xml">https://www.homedepot.com/sitemap/P/PIPs.xml</a>, and there are two subcategories. In other words, this is how you get to a product page:</p>
                                 <p>PIP XML link (above) --&gt; XML link --&gt; XML link --&gt; Product page</p>
-                                <p>In the file, I iterate through each product page to get the product information, if available. For simplicity, only the most important deatails are scraped, including the product&#39;s name, price, basic information, rating, and number of reviews.</p>
-                                <p>The information is formatted and saved into <code>ProductList.csv</code></p>
+                                <p>In the file, I iterate through each product page to get the product information, if available. For simplicity, only the most important deatails are scraped, including the product&#39;s name, price, basic information, rating, and number of reviews. The information is formatted and saved into <code>ProductList.csv</code></p>
                                 <h3 id="-server-py-"><code>server.py</code></h3>
                                 <p>This is where the magic happens. Using Langchain, the CSV data is loaded into the chatbot that is based on OpenAI&#39;s GPT 3.5-turbo model. The file also includes necessary functions to integrate with Slack, enabling localhost port 3000 to accept and reply to Slack requests, generating relevant output based on the data and the user&#39;s question. The bot can remember the last 5 messages sent and received <em>in the current server session</em>.</p>
-                                <h2 id="future-work">Future Work</h2>
-                                <p>There are many areas of potential improvement:</p>
+                                <h2 id="future-work">Future Work and Improvements</h2>
                                 <h4 id="web-scraping">Web Scraping</h4>
                                 <ul>
                                    <li>Scrape more comprehensive product data, and speed up the scraping if possible.</li>
