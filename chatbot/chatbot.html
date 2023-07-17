@@ -39,9 +39,9 @@
 									</section>
                                 
                                 <h2 id="project-overview">Running the bot</h2>
-                                <h4 id="by-colton-wolk">By Colton Wolk</h4>
-                                <p>This project allows you to scrape Home Depot&#39;s website for product information and interact with a chatbot via Slack to answer questions about those products. The main files are <code>scraping.py</code> and <code>server.py</code>. The <code>requirements.txt</code> file lists necessary packages and <code>ProductList.csv</code> contains a list of nearly 700 products that have been scraped already. That list makes for a sufficient demonstration of how the chatbot works.</p>
-                                <p>Note that some of the products listed in the sitemap are sold out, no longer available, or have other issues with their product pages. I filtered out product links that led to items without a name, but left others in. See <a href="#Future-Work">Future Work</a> below.</p>
+                                <p>My project allows you to scrape Home Depot&#39;s website for product information and interact with a chatbot via Slack to answer questions about those products. The main files are <code>scraping.py</code> and <code>server.py</code>. The <code>requirements.txt</code> file lists necessary packages and <code>ProductList.csv</code> contains a list of nearly 700 products that have been scraped already. That list makes for a sufficient demonstration of how the chatbot works.
+                                    
+                                Note that some of the products listed in the sitemap are sold out, no longer available, or have other issues with their product pages. I filtered out product links that led to items without a name, but left others in. See <a href="#Future-Work">Future Work</a> below.</p>
                                 <h2 id="running-the-bot">Running the bot</h2>
                                 <p> <strong>Note to all employers: Please contact me if you would like to test out the bot. I would be happy to add you to the Slack workspace and give you access to the proper files. You may also peruse my presentation about the chatbot linked on my website for an example of it in action, at this link: <a href="https://www.coltonwolk.com/chatbot/chatbot.html">https://www.coltonwolk.com/chatbot/chatbot.html</a>.</strong></p>
                                 <h2 id="files">Files</h2>
@@ -56,17 +56,15 @@
                                 <p>There are many areas of potential improvement:</p>
                                 <h4 id="web-scraping">Web Scraping</h4>
                                 <ul>
-                                   <li>Scrape more data, and speed up the scraping if possible.</li>
+                                   <li>Scrape more comprehensive product data, and speed up the scraping if possible.</li>
                                    <li>
                                       Scan product pages to enumerate all possible XPaths or <code>class</code> names of features like price, reviews, etc. Some products have the details in different locations, and I may have missed some.
-                                      <ul>
-                                         <li>Consider scraping additional features and text from the product pages. I chose only to scrape a limited subset.</li>
-                                      </ul>
                                    </li>
                                 </ul>
-                                <h4 id="slack-server">Slack Server</h4>
+                                <h4 id="server-security">Server and Security</h4>
                                 <ul>
                                    <li>Create a permanent server to run the bot, or find a better solution for a temporary server that can be activated by anyone with a particular link (for testing purposes).</li>
+                                   <li>If ever used externally, put all sensitive data and keys into a <code>.env</code> file. </li>
                                 </ul>
                                 <h4 id="slack-bot">Slack Bot</h4>
                                 <ul>
@@ -75,10 +73,6 @@
                                    <li>Add support to process a multi-header CSV file into the model. Currently, I combine the data for each product into one line of text because that produced better results, which makes the CSV file not much different from a text file, ultimately. </li>
                                    <li>Add additional features for the bot and better integrate it into the workspace, such as enabling it to work in DMs, threads, etc.</li>
                                    <li>Store product information in a database, and maintain a history of chat messages that persists longer than the temporary server&#39;s session and longer than the last 5 messages. Currently, the data and memory are transient. </li>
-                                </ul>
-                                <h4 id="security">Security</h4>
-                                <ul>
-                                   <li>If ever used externally, put all sensitive data and keys into a <code>.env</code> file. </li>
                                 </ul>
                                 <h2 id="citations">Citations</h2>
                                 <p>I used the Langchain and Slack documentation for this project, in addition to modifying some code from the following links:</p>
