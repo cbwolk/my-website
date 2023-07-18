@@ -49,7 +49,7 @@
                                 <p>PIP XML link (above) &mdash;&gt; XML link &mdash;&gt; XML link &mdash;&gt; Product page</p>
                                 <p>In the file, I iterate through each product page to get the product information, if available. For simplicity, only the most important deatails are scraped, including the product&#39;s name, price, basic information, rating, and number of reviews. The information is formatted and saved into <code>ProductList.csv</code></p>
                                 <h3 id="-server-py-"><code>server.py</code></h3>
-                                <p>This is where the magic happens. Using Langchain, the CSV data is loaded into the chatbot that is based on OpenAI&#39;s GPT 3.5-turbo model. The file also includes necessary functions to integrate with Slack, enabling localhost port 3000 to accept and reply to Slack requests, generating relevant output based on the data and the user&#39;s question. The bot can remember the last 5 messages sent and received <em>in the current server session</em>.</p>
+                                <p>This is where the magic happens. Using Langchain, the CSV data is loaded into the chatbot that is based on OpenAI&#39;s GPT 3.5-turbo model. The file also includes necessary functions to integrate with Slack, enabling localhost port 3000 to accept and reply to Slack requests, generating relevant output based on the data and the user&#39;s question. The bot remembers previous messages sent and received.</p>
                                 <h2 id="future-work">Future Work and Improvements</h2>
                                 <h4 id="web-scraping">Web Scraping</h4>
                                 <ul>
@@ -60,16 +60,15 @@
                                 </ul>
                                 <h4 id="server-security">Server and Security</h4>
                                 <ul>
-                                   <li>Create a permanent server to run the bot, or find a better solution for a temporary server that can be activated by anyone with a particular link (for testing purposes).</li>
-                                   <li>If ever used externally, put all sensitive data and keys into a <code>.env</code> file. </li>
+                                   <li>Create a permanent server to run the bot instead of a temporary one, used for testing.</li>
+                                   <li>If used externally, put all sensitive data and keys into a <code>.env</code> file. </li>
                                 </ul>
                                 <h4 id="slack-bot">Slack Bot</h4>
                                 <ul>
-                                   <li>Optimize and tune the LLM for best results (e.g., adjust the temperature), and consider using different base models from OpenAI and others.</li>
+                                   <li>Optimize and tune the LLM for best results (e.g., adjust temperature), and test with different base models from OpenAI and others.</li>
                                    <li>Optimize the way the product data is processed into the model by adjusting the size of the text splitting, etc.</li>
-                                   <li>Add support to process a multi-header CSV file into the model. Currently, I combine the data for each product into one line of text because that produced better results, which makes the CSV file not much different from a text file, ultimately. </li>
-                                   <li>Add additional features for the bot and better integrate it into the workspace, such as enabling it to work in DMs, threads, etc.</li>
-                                   <li>Store product information in a database, and maintain a history of chat messages that persists longer than the temporary server&#39;s session and longer than the last 5 messages. Currently, the data and memory are transient. </li>
+                                   <li>Add additional features for the bot in the workspace, such as enabling it to work in DMs, threads, etc.</li>
+                                   <li>Store product information in a database, and maintain a history of chat messages that persists longer than the temporary server&#39;s session. Currently, the data and memory are transient. </li>
                                 </ul>
                                 <h2 id="citations">References</h2>
                                 <p>I used the Langchain and Slack documentation for this project, in addition to adapting limited portions of code from <a href="https://stackoverflow.com/questions/31276001/parse-xml-sitemap-with-python">Stack Overflow</a>, <a href="https://github.com/Saurav-Shrivastav/Slackbot-tutorial">Github</a>, and <a href="https://www.freecodecamp.org/news/scraping-ecommerce-website-with-python/">freeCodeCamp</a>.
